@@ -3,12 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { useServiceWorker } from './hooks/useServiceWorker';
+
+// Hook para registrar el service worker
+const ServiceWorkerRegistration = () => {
+  useServiceWorker();
+  return null;
+};
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <ServiceWorkerRegistration />
     <App />
   </React.StrictMode>
 );

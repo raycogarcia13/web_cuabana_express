@@ -1,0 +1,477 @@
+.finance-management {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  min-height: calc(100vh - 120px);
+}
+
+.finance-loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #666;
+}
+
+.finance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.finance-header h2 {
+  color: #333;
+  margin: 0;
+}
+
+.add-operation-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.add-operation-btn:hover {
+  background: #218838;
+}
+
+/* Resumen General */
+.finance-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.summary-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.summary-card.total {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.summary-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.summary-card.total h3 {
+  opacity: 1;
+}
+
+.summary-card .amount {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.summary-card .count {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Resumen por Provincia */
+.province-summary {
+  margin-bottom: 30px;
+}
+
+.province-summary h3 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.province-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.province-card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.province-card h4 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 14px;
+}
+
+.province-card .amount {
+  font-size: 20px;
+  font-weight: bold;
+  color: #28a745;
+  margin: 5px 0;
+}
+
+.province-card .operations {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+
+/* Operaciones Recientes */
+.recent-operations {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.recent-operations h3 {
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+.operations-table {
+  overflow-x: auto;
+}
+
+.operations-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.operations-table th,
+.operations-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.operations-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #333;
+}
+
+.operations-table .type-entrada {
+  color: #28a745;
+  font-weight: 500;
+}
+
+.operations-table .type-remesa {
+  color: #dc3545;
+  font-weight: 500;
+}
+
+.operations-table .type-recarga {
+  color: #007bff;
+  font-weight: 500;
+}
+
+.operations-table .amount {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal h3 {
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.modal-actions button[type="button"] {
+  background: #6c757d;
+  color: white;
+}
+
+.modal-actions button[type="button"]:hover {
+  background: #5a6268;
+}
+
+.modal-actions button[type="submit"] {
+  background: #007bff;
+  color: white;
+}
+
+.modal-actions button[type="submit"]:hover {
+  background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .finance-management {
+    padding: 10px;
+    min-height: calc(100vh - 100px);
+  }
+  
+  .finance-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+  
+  .finance-summary {
+    grid-template-columns: 1fr;
+  }
+  
+  .province-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .operations-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+  
+  .filter-controls {
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .filter-group {
+    justify-content: center;
+  }
+  
+  .operations-table {
+    max-height: 300px;
+  }
+  
+  .operations-table table {
+    min-width: 500px;
+  }
+  
+  .modal {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+/* Delete Button Styles */
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.3s;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
+
+.delete-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Table Actions */
+.table-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Improved Table Layout */
+.operations-table {
+  overflow-x: auto;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  max-height: 400px;
+  margin-bottom: 20px;
+}
+
+.operations-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.operations-header h3 {
+  margin: 0;
+  color: #333;
+}
+
+.filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-controls label {
+  font-weight: 500;
+  color: #333;
+  white-space: nowrap;
+}
+
+.filter-select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  min-width: 150px;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.operations-table table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+.operations-table th {
+  position: sticky;
+  top: 0;
+  background: #f8f9fa;
+  z-index: 10;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #dee2e6;
+  font-weight: 600;
+  color: #333;
+}
+
+.operations-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}
+
+/* Confirmation Modal */
+.confirmation-modal {
+  text-align: center;
+}
+
+.confirmation-modal p {
+  margin: 20px 0;
+  color: #666;
+}
+
+.confirmation-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.confirmation-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  min-width: 100px;
+}
+
+.confirm-delete {
+  background: #dc3545;
+  color: white;
+}
+
+.confirm-delete:hover {
+  background: #c82333;
+}
+
+.cancel-delete {
+  background: #6c757d;
+  color: white;
+}
+
+.cancel-delete:hover {
+  background: #5a6268;
+}
